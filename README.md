@@ -1,6 +1,13 @@
 # ApacheServer
 Create a secure and private server using Apache HTTP server
 
+## Table of Content
+* Prerequisites
+* Software Requirements
+* Step by step Guide
+   * [Install CentOS, Ubuntu or Fedora on Virtual Box](#Install-CentOS-Ubuntu-or-Fedora-on-Virtual-Box)
+   * [Enable Virtualisation](#Enable-Virtualisation)
+   * [Set up Operating System on Virtual Box](#Set-up-Operating-System-on-Virtual-Box)
 
 ### Prerequisites
 * Any Virtual Machine from Oracle VM VirtualBox
@@ -29,8 +36,12 @@ Create a secure and private server using Apache HTTP server
 4. Ensure that it is 'ENABLED'
 5. Save current settings and exit BIOS
 
-
-
- 
-
- 
+#### Set up Operating System on Virtual Box
+1. Once Oracle VM VirtualBox has been downloaded, you will have to install a disk of your preferred Operating System (OS)
+2. For instance, if your desired OS is CentOS, go over to CentOS.com and download a disk
+3. After installation, open up VirtalBox and click 'Machine' on the top left-hand corner.
+4. Click 'new' and select the software provider, select 'Linux' and Version as 'Red Hat (32 or 64-bit)'
+5. To check whether your processor is 32 or 64-bits, go over to Settings -> About, under 'System Type'
+6. The amount of RAM you allocate to this Virtual Machine (VM) should be at least 2048MB.
+7. Once you have setup the virtual hard disk, it should appear again ‘Tools’ on the left side of your screen.
+8. 

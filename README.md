@@ -248,7 +248,7 @@ ping 192.168.0.129 // ip address of my CentOS
 2. Open Oracle VM VirtualBox and navigate to Settings/Network. Ensure 'Enable Network Adapter' is checked and for options to 'Attached to:', select 'Bridged Adapter'
 3. Repeat step #1
 
-##### <ins>Manage Security-Enhanced Linux SELinux</ins>
+#### <ins>Manage Security-Enhanced Linux SELinux</ins>
 * In order to have more control over who can access the system/server, SELinux can be used.
 * This strengthens the security of the system as it enforces mandatory access control over programs, system services, files and network resources.
 * SELinux has 2 global modes; enforcing and permissive.Enforcing mode means that the SELinux policy is in effect and the policies will be followed according to it very strictly. As for permissive mode, it comes in handy when trying to debug or allow some features to run on some instances which are not allowed in enforcing mode.This allows us to have a choice on the policies that are enforced.

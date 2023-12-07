@@ -37,7 +37,7 @@ Create a secure and private server using Apache HTTP server
 
 ### Step by Step Guide
 - - - -
-#### Install CentOS, Ubuntu or Fedora on Virtual Box 
+#### <ins>Install CentOS, Ubuntu or Fedora on Virtual Box</ins>
 * If you do not own a spare computer, you will have to install VirtualBox, and run the OS virtually on your host computer (Windows/Mac).  
 1. Search for Oracle VM VirtualBox and download the latest version of VB.
 

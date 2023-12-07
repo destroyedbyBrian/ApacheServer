@@ -17,6 +17,7 @@ Create a secure and private server using Apache HTTP server
    * [Manage Security-Enhanced Linux SELinux](#manage-security-enhanced-linux-selinux)
    * [Configure SSH accessibility on Wide Area Network (WAN)](#configure-ssh-accessibility-on-wide-area-network)
    * [Transfer files from Host machine to VM](#transfer-files-from-host-machine-to-VM)
+   * [Create Virtual Environment](#create-virtual-environment)
 
 ### Prerequisites
 - - - -
@@ -327,4 +328,48 @@ ssh root@192.168.0.129
 1. Install PuTTY on host machine
 2. Once installation is completed, go over to the search bar and look for 'PuTTy'
 3. Click on 'Open file location'
-4. 
+4. Hold Shift on your keyboard and right click anywhere inside file explorer
+5. Select 'Open PowerShell Window'
+6. A terminal should appear and enter command below
+```
+pscp.exe
+```
+7. Drag selected file from file explorer into terminal
+8. It should look something like this
+```
+pscp.exe C:\Users\bob\Pictures\passport.jpg
+```
+9. Enter the command below
+```
+pscp.exe C:\Users\bob\Pictures\passport.jpg root@192.168.0.129:/tmp/
+```
+10. You will be prompted to enter the password, wait until it loads to 100%
+
+#### <ins>Create Virtual Environment</ins>
+* At its core, the main purpose of Python virtual environments is to create an isolated environment for Python projects. This means that each project can have its own dependencies, regardless of what dependencies every other project has.
+* We will be using Pipenv to create our virtual environment
+1. Open up PowerShell on your host machine
+2. Install pipenv
+```
+pip install pipenv
+```
+3. Create a directory where you would like to create your virtual environment
+```
+mkdir Django
+```
+4. Access directory that you just created and activate project's virtual environment
+```
+cd Django
+pipenv shell
+```
+5. Below are a few commands that you can write inside the virtual environment
+```
+pipenv install requests
+pipenv uninstall *package name*
+pipenv --rm // remove current virtual environment 
+pipenv –venv // look at path of virtual environment 
+pipenv check // check for security vulnerability 
+pip freeze // show list of packages in virtual environment or host
+exit // exit any virtual environment
+```
+

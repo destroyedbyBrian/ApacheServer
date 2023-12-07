@@ -18,6 +18,7 @@ Create a secure and private server using Apache HTTP server
    * [Configure SSH accessibility on Wide Area Network (WAN)](#configure-ssh-accessibility-on-wide-area-network)
    * [Transfer files from Host machine to VM](#transfer-files-from-host-machine-to-VM)
    * [Create Virtual Environment](#create-virtual-environment)
+   * [Set up Apache HTTP Server](#set-up-apache-http-server)
 
 ### Prerequisites
 - - - -
@@ -178,19 +179,19 @@ systemctl restart sshd
 * To prevent unauthorised personnel from accessing your private network, you have to establish a barrier between your trusted internal network and untrusted external network. One of the barriers is setting up Firewall.
 * In Firewall, there are Zones, they are simply security borders of a network, and interfaces that are in the same zone have similar functions or features.
 * In order to configure Firewall commands, you will need to be a user with root privileges or root itself. This saves you the hassle to type in sudo before every command. 
-1. Install firewall
+1. Install Firewall
 ```
 sudo dnf install firewalld
 ```
-2. Enable firewall
+2. Enable Firewall
 ```
 systemctl enable firewalld
 ```
-3. Start firewall
+3. Start Firewall
 ```
 systemctl start firewalld
 ```
-4. Check status of firewall
+4. Check status of Firewall
 ```
 firewall-cmd --state
 ```
@@ -211,19 +212,19 @@ firewall-cmd --zone-public --list-all
 ```
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 ```
-8. Reload firewall
+8. Reload Firewall
 ```
 firewall-cmd --reload
 ```
-9. Check status of firewall
+9. Check status of Firewall
 ```
 firewall-cmd --state
 ```
-10. Enable services like httpd and sshd through firewall
+10. Enable services like httpd and sshd through Firewall
 ```
 firewall-cmd --zone=public --add-service=http --permanent
 ```
-11. Reload firewall
+11. Reload Firewall
 ```
 firewall-cmd --reload 
 ```
@@ -234,7 +235,7 @@ firewall-cmd --reload
 ```
 firewall-cmd --zone=public --remove-port=80/tcp --permanent 
 ```
-13. Reload firewall
+13. Reload Firewall
 ```
 firewall-cmd --reload 
 ```
@@ -371,5 +372,28 @@ pipenv –venv // look at path of virtual environment
 pipenv check // check for security vulnerability 
 pip freeze // show list of packages in virtual environment or host
 exit // exit any virtual environment
+```
+
+#### <ins>Set up Apache HTTP Server</ins>
+1. Open up terminal in VM
+2. Install Apache
+```
+sudo dnf install httpd
+```
+3. Allow HTTP access through Firewall
+```
+sudo firewall-cmd --permanent --add-service=httpd 
+```
+4. Reload Firewall
+```
+sudo firewall-cmd –reload
+```
+5. Start Apache
+```
+sudo systemctl start httpd 
+```
+6. Check Apache Status
+```
+sudo systemctl status httpd
 ```
 

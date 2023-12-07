@@ -1,5 +1,5 @@
 # ApacheServer
-Create a secure and private server using Apache HTTP server
+Create a secure and private server using Apache HTTP server on Virtual Machine
 
 ## Table of Content
 * [Prerequisites](#prerequisites)

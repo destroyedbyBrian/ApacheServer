@@ -41,7 +41,7 @@ Create a secure and private server using Apache HTTP server
 * If you do not own a spare computer, you will have to install VirtualBox, and run the OS virtually on your host computer (Windows/Mac).  
 1. Search for Oracle VM VirtualBox and download the latest version of VB.
 
-#### Enable Virtualisation
+#### <ins>Enable Virtualisation</ins>
 * Since you are trying to set up a remote computer/Virtual Machine (VM) on your host computer, you first must enable virtualisation on your host.
 * This step is IMPORTANT, if virtualisation setting is left disabled, you will not be able to run a VM. 
 1. Reboot your machine
@@ -50,7 +50,7 @@ Create a secure and private server using Apache HTTP server
 4. Ensure that it is 'ENABLED'
 5. Save current settings and exit BIOS
 
-#### Set up Operating System on Virtual Box
+#### <ins>Set up Operating System on Virtual Box</ins>
 1. Once Oracle VM VirtualBox has been downloaded, you will have to install a disk of your preferred Operating System (OS)
 2. For instance, if your desired OS is CentOS, go over to CentOS.com and download a disk
 3. After installation, open up VirtalBox and click 'Machine' on the top left-hand corner.
@@ -67,7 +67,7 @@ Create a secure and private server using Apache HTTP server
    *  The installation screen should not appear anymore and you can let it run
    *  Once you have reached the stage where you select your preferred language and time zone, you can proceed as directed
   
-#### Configure internet access on Operating System
+#### <ins>Configure internet access on Operating System</ins>
 * Once you have logged into your OS, you will then have to configure it with internet access.
 * If your Virtual Machine (VM) has Graphical User Interface (GUI), simply go over to the top right-hand corner of the screen and select ‘Connect to network’ if it is not already connected to one.
 * However, if your VM does not have GUI, please follow the steps below.
@@ -103,7 +103,7 @@ sudo nmcli connection up enp0s3
 ping 8.8.8.8
 ```
 
-#### Change Hostname
+#### <ins>Change Hostname</ins>
 * It can be very confusing when interacting with another computer, so to prevent any mix up, we can change the hostname to something unique.
 ```
 hostnamectl --static set-hostname “uniqueVM”
@@ -111,7 +111,7 @@ hostnamectl --pretty set-hostname “uniqueVM”
 cat /etc/hostname
 ```
 
-#### Setup Secure Shell (SSH)
+#### <ins>Setup Secure Shell (SSH)</ins>
 * SSH is a client-server service providing secure encrypted connections over the network connection.
 * This simply means that you can access a computer that you do not have physical accessibility to.
 * SSH also allows you to transfer files securely over the internet. 
@@ -144,7 +144,7 @@ firewall-cmd --zone=public --permanent --add-service=ssh
 ssh root@192.168.0.129
 ```
 
-#### Create new administrative user with SSH access
+#### <ins>Create new administrative user with SSH access</ins>
 * You will not want to always login as root due to security reasons.  
 * So, a regular user that has the privileges to execute any command as root user would be recommended.  
 1. Login to SSH as root
@@ -173,7 +173,7 @@ sudo vi /etc/ssh/sshd_config
 systemctl restart sshd
 ```
 
-#### Manage Firewall
+#### <ins>Manage Firewall</ins>
 * To prevent unauthorised personnel from accessing your private network, you have to establish a barrier between your trusted internal network and untrusted external network. One of the barriers is setting up Firewall.
 * In Firewall, there are Zones, they are simply security borders of a network, and interfaces that are in the same zone have similar functions or features.
 * In order to configure Firewall commands, you will need to be a user with root privileges or root itself. This saves you the hassle to type in sudo before every command. 
@@ -238,7 +238,7 @@ firewall-cmd --zone=public --remove-port=80/tcp --permanent
 firewall-cmd --reload 
 ```
 
-#### Log into SSH on local host
+#### <ins>Log into SSH on local host</ins>
 * To access your VM on your local host, you can use services like SSH.  
 1. Check connection  between local host and VM
 ```
@@ -248,7 +248,7 @@ ping 192.168.0.129 // ip address of my CentOS
 2. Open Oracle VM VirtualBox and navigate to Settings/Network. Ensure 'Enable Network Adapter' is checked and for options to 'Attached to:', select 'Bridged Adapter'
 3. Repeat step #1
 
-##### Manage Security-Enhanced Linux SELinux 
+##### <ins>Manage Security-Enhanced Linux SELinux</ins>
 * In order to have more control over who can access the system/server, SELinux can be used.
 * This strengthens the security of the system as it enforces mandatory access control over programs, system services, files and network resources.
 * SELinux has 2 global modes; enforcing and permissive.Enforcing mode means that the SELinux policy is in effect and the policies will be followed according to it very strictly. As for permissive mode, it comes in handy when trying to debug or allow some features to run on some instances which are not allowed in enforcing mode.This allows us to have a choice on the policies that are enforced.
@@ -288,7 +288,7 @@ sudo setenforce 0
 sestatus
 ```
 
-#### Configure SSH accessibility on Wide Area Network (WAN)
+#### <ins>Configure SSH accessibility on Wide Area Network (WAN)</ins>
 * Expand the range of SSH accessibility on WAN, making it convenient for other authorized users to work remotely.
 * To access SSH outside of LAN, you need to open the ports of the router that is connected to your host system.
 * IF your IP address is 192.168.0.129, your router's IP would be 192.168.0.1
@@ -321,7 +321,7 @@ ssh root@192.168.0.129
 * Disconnect from the Wi-Fi on your smartphone and turn on your mobile data and repeat step #9.
 10. Configuration of SSH accessibilty on WAN would be successful if SSH login attempt is successful.
 
-#### Transfer files from Host machine to VM
+#### <ins>Transfer files from Host machine to VM</ins>
 * If you are running a VM without GUI, it is difficult to download images on the web.
 * The solution to this problem is to download the images on your host machine and transfer them to your VM.
 1. Install PuTTY on host machine
